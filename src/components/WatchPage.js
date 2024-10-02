@@ -24,7 +24,7 @@ const WatchPage = () => {
   const {viewCount,likeCount}  = statistics;
   console.log(statistics);
   return (
-    <div>
+    <div className='max-h-screen overflow-y-auto'>
     <div className='w-full mx-auto my-8 '>
 
       <div className='p-2 w-[90%] h-[30vh] md:h-[50vh] lg:h-[80vh] mx-auto overflow-hidden rounded-lg' >
