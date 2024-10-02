@@ -15,7 +15,7 @@ const VideoCard = ({info}) => {
   console.log(info)
    const {channelTitle,title,thumbnails }=snippet;
   return (
-    <div className=' w-[400px] m-2  flex flex-col gap-1 overflow-hidden'>
+    <div className=' w-[380px] m-2  flex flex-col gap-1 overflow-hidden'>
       <img className='w-[full] rounded-xl' src={thumbnails.high.url}/>
      
         <div className='flex gap-1 m-2'>
