@@ -50,15 +50,15 @@ const Sidebar = () => {
       
     // </div>
     <div className='w-[200px] bg-gray-50 min-h-[100vh] overflow-y-auto no-scrollbar absolute top-[-0.2%] md:top-[-0.2%] lg:top-[-1%] pt-8 sm:pt-2 transition-all duration-300'>
-  {/* <div className='w-[100%] flex items-center justify-between bg-gray-50 gap-6 mx-auto'>
-    <div className='flex gap-4 items-center'>
+  <div className='w-[100%] flex items-center justify-start pl-4 bg-gray-50 gap-6 mx-auto'>
+    <div className='flex gap-4 items-center justify-center'>
       <IoClose 
         onClick={() => { dispatch(toogleMenu()) }} 
-        className='text-2xl cursor-pointer text-black font-bold rounded-full hover:bg-gray-200 p-1' 
+        className='text-4xl mx-auto cursor-pointer text-black font-bold rounded-full hover:bg-gray-200 p-1' 
       />
-      <ImYoutube2 className='text-red-600 text-[50px] sm:text-[70px] cursor-pointer p-0 m-0' />
+      {/* <ImYoutube2 className='text-red-600 text-[50px] sm:text-[70px] cursor-pointer p-0 m-0' /> */}
     </div>
-  </div> */}
+  </div>
   
   <SideMenu icon={IoMdHome} text="Home"/>
   <SideMenu icon={SiYoutubeshorts} text="Shorts"/>
