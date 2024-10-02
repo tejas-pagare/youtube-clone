@@ -12,9 +12,9 @@ import { toogleMenu } from '../utils/appSlice'
 const Head = ({setSideBar}) => {
   const dispatch = useDispatch();
   return (
-    <div className='w-full bg-gray-50 p-6 sm:p-4  flex items-center justify-between gap-4 h-[6vw] sm:h-[5vw] overflow-hidden'>
+    <div className='w-full  p-6 sm:p-4  flex items-center justify-between gap-4 h-[6vw] sm:h-[5vw] overflow-hidden'>
       <div className='w-[10%] flex items-center justify-evenly h-full bg-gray-50 gap-4 '>
-        <div className='flex gap-4 items-center'>
+        <div className='flex gap-4 items-center px-2'>
           <GiHamburgerMenu onClick={()=>{
             dispatch(toogleMenu())
           }} className='text-2xl cursor-pointer text-black font-bold' />
@@ -25,8 +25,8 @@ const Head = ({setSideBar}) => {
       </div>
       <div className='w-[80%] flex items-center justify-center'>
 
-        <div className='bg-gray-100 rounded-[50px] p-1 px-2 sm:p-2  outline-none w-[60%] overflow-hidden flex items-center border-[1px] border-gray-200 '>
-          <input className='bg-gray-100 outline-none w-[95%] h-full placeholder-gray-800 text-sm' placeholder='Search...' />
+        <div className='bg-gray-50 rounded-[50px] p-1 px-2 sm:p-2  outline-none w-[60%] overflow-hidden flex items-center border-[1px] border-gray-200 '>
+          <input className='bg-gray-50 outline-none w-[95%] h-full placeholder-gray-800 text-sm' placeholder='Search...' />
           <FaSearch className='text-xl cursor-pointer ' />
         </div>
       </div>

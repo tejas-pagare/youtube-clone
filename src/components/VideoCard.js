@@ -12,11 +12,14 @@ const VideoCard = ({info}) => {
     return count.toString(); // Return the count as-is if less than 1,000
   };
   const {snippet,statistics}=info;
-  console.log(info)
+  
    const {channelTitle,title,thumbnails }=snippet;
   return (
-    <div className=' w-[380px] m-2  flex flex-col gap-1 overflow-hidden'>
-      <img className='w-[full] rounded-xl' src={thumbnails.high.url}/>
+    <div className=' w-[380px] h-[300px] m-2  flex flex-col gap-1 overflow-hidden'>
+      <div className='h-[70%]'>
+      <img className='w-full h-full object-cover  rounded-xl' src={thumbnails.high.url}/>
+
+      </div>
      
         <div className='flex gap-1 m-2'>
           <div className='w-[50px] felx items-center justify-center'>
