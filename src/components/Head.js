@@ -14,7 +14,7 @@ const Head = ({setSideBar}) => {
   return (
     <div className='w-full  p-6 sm:p-4  flex items-center justify-between gap-4 h-[6vw] sm:h-[5vw] overflow-hidden'>
       <div className='w-[10%] flex items-center justify-evenly h-full bg-gray-50 gap-4 '>
-        <div className='flex gap-4 items-center px-2'>
+        <div className='flex gap-4 items-center px-4'>
           <GiHamburgerMenu onClick={()=>{
             dispatch(toogleMenu())
           }} className='text-2xl cursor-pointer text-black font-bold' />
