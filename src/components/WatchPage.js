@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiOutlineLike } from 'react-icons/ai';
 import { BiDislike } from 'react-icons/bi';
 import { PiShareFatThin } from 'react-icons/pi';
 import { useLocation, useParams, useSearchParams } from 'react-router-dom'
 import VideoContainer from './VideoContainer';
+import { GOOGLE_API_KEY } from '../utils/constant';
+import CommentsSection from './CommentsSection';
 
 const WatchPage = () => {
   const [params] = useSearchParams();
   const location = useLocation();
   const [seeDes, setDes] = useState(false);
+  const [seeComments,setSeeComments] = useState(false);
   const formatViews = (count) => {
     if (count >= 1e9) {
       return (count / 1e9).toFixed(1) + 'B'; // Billion
@@ -22,7 +25,13 @@ const WatchPage = () => {
   const { snippet, statistics } = location.state;
   const { channelTitle, localized } = snippet;
   const { viewCount, likeCount } = statistics;
-  console.log(location.state);
+  const id = location.state.id;
+
+ const logourl = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=${GOOGLE_API_KEY}`;
+
+  useEffect(()=>{
+    console.log(logourl)
+  },[])
   return (
     <div className='max-h-screen overflow-y-auto'>
       <div className='w-full mx-auto my-8 '>
@@ -64,7 +73,7 @@ const WatchPage = () => {
             </div>
             <div className='bg-gray-100 rounded-lg mt-2 '>
               <button onClick={() => setDes((prev) => !prev)} className='w-full bg-transparent text-xs text-black p-2 rounded-lg'>
-                <h1 className='text-start text-black text-md font-semibold '>{viewCount+"views"}</h1>
+                <h1 className='text-start text-black text-md font-semibold '>{formatViews(viewCount)+"\tviews"}</h1>
                 <h3 className='text-start text-black text-md font-semibold'>{localized.title}</h3>
                 {!seeDes && <h4 className='text-black font-bold cursor-pointer text-end '>more...</h4>}
               </button>
@@ -77,6 +86,27 @@ const WatchPage = () => {
 
                 {seeDes && <h4 onClick={() => setDes((prev) => !prev)} className='text-black font-bold cursor-pointer text-end text-xs '>Show less...</h4>}
               </div>}
+            </div>
+            <div className=' overflow-hidden'>
+            <h1 className='text-xl text-black font-bold my-2 '>152 Comments</h1>
+              <div className=' w-[200px] text-start rounded-[50px] py-2'>
+                <button onClick={()=>setSeeComments(p=>!p)} className='w-full text-start bg-transparent border-none text-black text-sm cursor-pointer'>See comments..</button>
+              </div>
+              <div className='flex gap-8 w-full'>
+        <div className='w-[5%]'>
+        <div className=' h-10 w-10 text-white font-semibold text-2xl bg-purple-800 text-center content-center rounded-[100%]'>
+          T
+        </div>
+          </div>
+        
+        <div className='w-[80%]'>
+          <input placeholder='Add Some Comment' className='w-full sm:w-[60%] border-b-[1px] border-gray-700 p-2 outline-none placeholder-gray-600 text-sm'></input>
+        </div>
+      </div>
+              {
+              seeComments&& <CommentsSection/>
+              }
+             
             </div>
           </div>
         </div>
