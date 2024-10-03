@@ -3,6 +3,7 @@ import { YOUTUBE_VIDEO_API } from '../utils/constant'
 import { useSelector } from 'react-redux'
 import VideoCard from './VideoCard';
 import { Link, useNavigate } from 'react-router-dom';
+import Shimmer from './Shimmer';
 
 const VideoContainer = () => {
   const [videos,setVideos] = useState([]);
@@ -18,9 +19,7 @@ const VideoContainer = () => {
   }
   return (
     <>
-    {videos.length === 0 ? (
-      <div>Loading...</div> // Optional loading message while fetching videos
-    ) : (
+    {videos.length === 0 ? <Shimmer/> : (
       <div className='flex flex-wrap mx-auto items-center justify-center h-[100vh] overflow-y-auto w-[100vw]' >
         
         {
