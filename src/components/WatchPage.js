@@ -12,6 +12,7 @@ const WatchPage = () => {
   const location = useLocation();
   const [seeDes, setDes] = useState(false);
   const [seeComments,setSeeComments] = useState(false);
+  const [commentData,setCommentData] = useState([]);
   const formatViews = (count) => {
     if (count >= 1e9) {
       return (count / 1e9).toFixed(1) + 'B'; // Billion
@@ -29,8 +30,19 @@ const WatchPage = () => {
 
  const logourl = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=${GOOGLE_API_KEY}`;
 
+ const commentsUrl = `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${id}&key=${GOOGLE_API_KEY}`
+ 
+
   useEffect(()=>{
-    console.log(logourl)
+    const fetchComments = async()=>{
+      const response = await fetch(commentsUrl);
+      const data = await response.json();
+      
+      setCommentData(data.items)
+    }
+    fetchComments()
+   
+
   },[])
   return (
     <div className='max-h-screen overflow-y-auto'>
@@ -104,7 +116,7 @@ const WatchPage = () => {
         </div>
       </div>
               {
-              seeComments&& <CommentsSection/>
+              seeComments&& <CommentsSection commentData={commentData} />
               }
              
             </div>

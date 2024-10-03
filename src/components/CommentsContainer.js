@@ -3,6 +3,7 @@ import { AiOutlineLike } from 'react-icons/ai'
 import { BiDislike } from 'react-icons/bi'
 
 const CommentsContainer = ({subdata}) => {
+  console.log(subdata)
   return (
     <>
        <div className='flex gap-4 py-4'>
