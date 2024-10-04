@@ -21,7 +21,7 @@ const ShortsCard = ({id,videos,setCurrShorts}) => {
     <div className='w-[100vw] h-[100vh] rounded-lg lg:w-[300px] lg:h-[550px] relative'>
 <iframe
   className="h-full w-full lg:rounded-lg"
-  src={`https://www.youtube.com/embed/${id}?autoplay=1&start=0&end=60&loop=1&playlist=${id}`}   
+  src={`https://www.youtube.com/embed/${id}?autoplay=1&start=0&end=60&mute=1&loop=1&playlist=${id}`}   
   title="YouTube video player"
   frameBorder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
