@@ -49,7 +49,7 @@ const Sidebar = () => {
      
       
     // </div>
-    <div className='w-[200px] bg-gray-50 min-h-[100vh] overflow-y-auto no-scrollbar absolute top-[-0.2%] md:top-[-0.2%] lg:top-[-1%] pt-8 sm:pt-2 transition-all duration-300'>
+    <div className='w-[200px] bg-gray-50 min-h-[100vh] overflow-y-auto no-scrollbar absolute top-[-0.2%] md:top-[-0.2%] lg:top-[-1%] pt-8 sm:pt-2 transition-all duration-300 z-100'>
   <div className='w-[100%] flex items-center justify-start pl-4 bg-gray-50 gap-6 mx-auto'>
     <div className='flex gap-4 items-center justify-center'>
       <IoClose 
