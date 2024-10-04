@@ -9,6 +9,7 @@ import { ImYoutube2 } from 'react-icons/im'
 import { IoClose } from 'react-icons/io5'
 import { useDispatch } from 'react-redux'
 import { toogleMenu } from '../utils/appSlice'
+import { Link } from 'react-router-dom'
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -49,8 +50,8 @@ const Sidebar = () => {
      
       
     // </div>
-    <div className='w-[200px] bg-gray-50 min-h-[100vh] overflow-y-auto no-scrollbar absolute top-[-0.2%] md:top-[-0.2%] lg:top-[-1%] pt-8 sm:pt-2 transition-all duration-300 z-100'>
-  <div className='w-[100%] flex items-center justify-start pl-4 bg-gray-50 gap-6 mx-auto'>
+    <div className='w-[200px] bg-white  min-h-[100vh] overflow-y-auto no-scrollbar absolute top-[-0.2%] md:top-[-0.2%] lg:top-[-1%] pt-8 sm:pt-2 transition-all duration-300 z-100'>
+  <div className='w-[100%] flex items-center justify-start pl-4  gap-6 mx-auto'>
     <div className='flex gap-4 items-center justify-center'>
       <IoClose 
         onClick={() => { dispatch(toogleMenu()) }} 
@@ -60,8 +61,8 @@ const Sidebar = () => {
     </div>
   </div>
   
-  <SideMenu icon={IoMdHome} text="Home"/>
-  <SideMenu icon={SiYoutubeshorts} text="Shorts"/>
+<Link to={"/"} ><SideMenu icon={IoMdHome} text="Home"/></Link>  
+ <Link to={"/shorts"}><SideMenu icon={SiYoutubeshorts} text="Shorts"/></Link> 
 
   <div className='min-h-screen mt-8'>
     <h1 className='font-bold text-xl px-4'>Explore</h1>
